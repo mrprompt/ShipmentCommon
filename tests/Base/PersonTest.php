@@ -3,7 +3,7 @@ namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Address;
 use MrPrompt\ShipmentCommon\Base\Person;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use MrPrompt\Tests\ShipmentCommon\Mock;
 use PHPUnit\Framework\TestCase;
 
@@ -286,17 +286,6 @@ class PersonTest extends TestCase
         $result = $this->person->setPerson('F');
 
         $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Person::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\Person::setPerson()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setPersonThrowsExceptionWhenEmpty()
-    {
-        $this->person->setPerson('');
     }
 
     /**

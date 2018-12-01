@@ -32,7 +32,7 @@ class Purchaser extends Person
     /**
      * @return string
      */
-    public function getPurchaserStateRegistration()
+    public function getPurchaserStateRegistration(): string
     {
         return $this->purchaserStateRegistration;
     }
@@ -40,7 +40,7 @@ class Purchaser extends Person
     /**
      * @param string $purchaserStateRegistration
      */
-    public function setPurchaserStateRegistration($purchaserStateRegistration)
+    public function setPurchaserStateRegistration(string $purchaserStateRegistration)
     {
         $this->purchaserStateRegistration = $purchaserStateRegistration;
     }
@@ -48,7 +48,7 @@ class Purchaser extends Person
     /**
      * @return the $purchaserFantasyName
      */
-    public function getPurchaserFantasyName()
+    public function getPurchaserFantasyName(): string
     {
         return $this->purchaserFantasyName;
     }
@@ -56,7 +56,7 @@ class Purchaser extends Person
     /**
      * @param mixed $purchaserFantasyName
      */
-    public function setPurchaserFantasyName($purchaserFantasyName)
+    public function setPurchaserFantasyName(string $purchaserFantasyName)
     {
         $this->purchaserFantasyName = $purchaserFantasyName;
     }
@@ -64,7 +64,7 @@ class Purchaser extends Person
     /**
      * @return the $purchaserSocialReason
      */
-    public function getPurchaserSocialReason()
+    public function getPurchaserSocialReason(): string
     {
         return $this->purchaserSocialReason;
     }
@@ -72,7 +72,7 @@ class Purchaser extends Person
     /**
      * @param mixed $purchaserSocialReason
      */
-    public function setPurchaserSocialReason($purchaserSocialReason)
+    public function setPurchaserSocialReason(string $purchaserSocialReason)
     {
         $this->purchaserSocialReason = $purchaserSocialReason;
     }

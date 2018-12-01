@@ -2,8 +2,6 @@
 namespace MrPrompt\ShipmentCommon\Base;
 
 use DateTime;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
 
 /**
  *
@@ -89,19 +87,24 @@ class Person
      * Constructor
      *
      */
-    public function __construct()
-    {
-        $this->person   = 'F';
-        $this->salaried = 'A';
-        $this->birth    = new DateTime();
-        $this->document = new Document();
-        $this->address  = new Address();
+    public function __construct(
+        string $person = 'F', 
+        string $salaried = 'A', 
+        DateTime $birth = null, 
+        Document $document = null, 
+        Address $address = null
+    ) {
+        $this->person   = $person;
+        $this->salaried = $address;
+        $this->birth    = $birth ?? new DateTime();
+        $this->document = $document ?? new Document();
+        $this->address  = $address ?? new Address();
     }
 
     /**
      * @return Document
      */
-    public function getDocument()
+    public function getDocument(): Document
     {
         return $this->document;
     }
@@ -117,7 +120,7 @@ class Person
     /**
      * @return Phone
      */
-    public function getHomePhone()
+    public function getHomePhone(): Phone
     {
         return $this->homePhone;
     }
@@ -133,7 +136,7 @@ class Person
     /**
      * @return Phone
      */
-    public function getHomePhoneSecondary()
+    public function getHomePhoneSecondary(): Phone
     {
         return $this->homePhoneSecondary;
     }
@@ -149,7 +152,7 @@ class Person
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -157,7 +160,7 @@ class Person
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
@@ -165,7 +168,7 @@ class Person
     /**
      * @return Email
      */
-    public function getEmail()
+    public function getEmail(): Email
     {
         return $this->email;
     }
@@ -181,7 +184,7 @@ class Person
     /**
      * @return Phone
      */
-    public function getCellPhone()
+    public function getCellPhone(): Phone
     {
         return $this->cellPhone;
     }
@@ -189,7 +192,7 @@ class Person
     /**
      * @param Phone $cellPhone
      */
-    public function setCellPhone($cellPhone)
+    public function setCellPhone(Phone $cellPhone)
     {
         $this->cellPhone = $cellPhone;
     }
@@ -197,7 +200,7 @@ class Person
     /**
      * @return the $fatherName
      */
-    public function getFatherName()
+    public function getFatherName(): string
     {
         return $this->fatherName;
     }
@@ -205,7 +208,7 @@ class Person
     /**
      * @param string $fatherName
      */
-    public function setFatherName($fatherName)
+    public function setFatherName(string $fatherName)
     {
         $this->fatherName = $fatherName;
     }
@@ -213,7 +216,7 @@ class Person
     /**
      * @return the $motherName
      */
-    public function getMotherName()
+    public function getMotherName(): string
     {
         return $this->motherName;
     }
@@ -221,7 +224,7 @@ class Person
     /**
      * @param string $motherName
      */
-    public function setMotherName($motherName)
+    public function setMotherName(string $motherName)
     {
         $this->motherName = $motherName;
     }
@@ -229,30 +232,23 @@ class Person
     /**
      * @return the $person
      */
-    public function getPerson()
+    public function getPerson(): string
     {
         return $this->person;
     }
 
     /**
      * @param string $person
-     * @throws \InvalidArgumentException
      */
-    public function setPerson($person)
+    public function setPerson(string $person = 'F')
     {
-        try {
-            Validator::create()->stringType()->in(['F', 'J'])->assert($person);
-
-            $this->person = $person;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid person type: "%s"', $person), 500, $ex);
-        }
+        $this->person = $person;
     }
 
     /**
      * @return mixed
      */
-    public function getSalaried()
+    public function getSalaried(): string
     {
         return $this->salaried;
     }
@@ -260,7 +256,7 @@ class Person
     /**
      * @param mixed $salaried
      */
-    public function setSalaried($salaried)
+    public function setSalaried(string $salaried = 'A')
     {
         $this->salaried = $salaried;
     }
@@ -268,7 +264,7 @@ class Person
     /**
      * @return DateTime
      */
-    public function getBirth()
+    public function getBirth(): DateTime
     {
         return $this->birth;
     }
@@ -284,7 +280,7 @@ class Person
     /**
      * @return Address
      */
-    public function getAddress()
+    public function getAddress(): Address
     {
         return $this->address;
     }

@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Bank
  *
@@ -18,29 +15,21 @@ class Bank
     const SICRED                    = 79;
 
     /**
-     * @var array
-     */
-    private $codes = [
-        self::BANCO_DO_BRASIL,
-        self::HSBC,
-        self::SANTANDER,
-        self::CAIXA_ECONOMICA_FEDERAL,
-        self::SICRED
-    ];
-
-    /**
-     *
-     * @var number
+     * Agency number
+     * 
+     * @var int
      */
     private $agency;
 
     /**
+     * Agency Digit
      *
      * @var number
      */
     private $digit;
 
     /**
+     * Bank code
      *
      * @var number
      */
@@ -49,7 +38,7 @@ class Bank
     /**
      * @return the $agency
      */
-    public function getAgency()
+    public function getAgency(): int
     {
         return $this->agency;
     }
@@ -59,21 +48,15 @@ class Bank
      *
      * @param number $agency
      */
-    public function setAgency($agency)
+    public function setAgency(int $agency)
     {
-        try {
-            Validator::create()->numeric()->assert($agency);
-
-            $this->agency = $agency;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid agency %s', $agency));
-        }
+        $this->agency = $agency;
     }
 
     /**
      * @return the $agencyDigit
      */
-    public function getDigit()
+    public function getDigit(): int
     {
         return $this->digit;
     }
@@ -83,21 +66,15 @@ class Bank
      *
      * @param number $digit
      */
-    public function setDigit($digit)
+    public function setDigit(int $digit)
     {
-        try {
-            Validator::create()->numeric()->assert($digit);
-
-            $this->digit = $digit;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid digit %s', $digit));
-        }
+        $this->digit = $digit;
     }
 
     /**
      * @return number
      */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
@@ -105,14 +82,8 @@ class Bank
     /**
      * @param number $code
      */
-    public function setCode($code)
+    public function setCode(int $code)
     {
-        try {
-            Validator::create()->numeric()->in($this->codes)->assert($code);
-
-            $this->code = $code;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid bank code %s', $code));
-        }
+        $this->code = $code;
     }
 }

@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Client;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
@@ -72,7 +72,7 @@ class ClientTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Client::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Client::setCode()
-     * @expectedException InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setCodeOnlyAcceptIntegerValue()
     {

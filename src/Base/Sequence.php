@@ -1,10 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use InvalidArgumentException;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Sequence
  *
@@ -22,7 +18,7 @@ class Sequence
      * 
      * @param string $value
      */
-    public function __construct($value = 1)
+    public function __construct(int $value = 1)
     {
         $this->setValue($value);
     }
@@ -32,7 +28,7 @@ class Sequence
      *
      * @return int
      */
-    public function getValue()
+    public function getValue(): int
     {
         return $this->value;
     }
@@ -41,11 +37,9 @@ class Sequence
      * Set the value from sequence
      *
      * @param int $value
-     * @return void
-     * @throws InvalidArgumentException
      */
-    public function setValue($value)
+    public function setValue(int $value)
     {
-        $this->value = (int)  $value;
+        $this->value = $value;
     }
 }

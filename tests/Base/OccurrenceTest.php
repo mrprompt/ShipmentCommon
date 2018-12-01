@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Occurrence;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -72,30 +72,6 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setType()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setTypeThrowsExceptionWhenNotPredefinedTypes()
-    {
-        $type = 'X';
-
-        $this->occurrence->setType($type);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setType()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setTypeThrowsExceptionWhenEmpty()
-    {
-        $type = ' ';
-
-        $this->occurrence->setType($type);
-    }
-
-    /**
-     * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::getReturn()
      */
     public function getReturnMustBeReturnReturnAttribute()
@@ -126,7 +102,7 @@ class OccurrenceTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setReturn()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setReturnThrowsExceptionWhenReceiveNonNumericValue()
     {
@@ -138,7 +114,7 @@ class OccurrenceTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setReturn()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setReturnThrowsExceptionWhenReceiveEmptyValue()
     {
@@ -190,16 +166,6 @@ class OccurrenceTest extends TestCase
     public function setDescriptionReturnNullWhenNotReceiveAnyParameter()
     {
         $this->assertNull($this->occurrence->setDescription());
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setDescription()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setDescriptionThrowsExceptionWhenNotReceiveNotString()
-    {
-        $this->assertNull($this->occurrence->setDescription(33));
     }
 
     /**

@@ -4,7 +4,7 @@ namespace MrPrompt\Tests\ShipmentCommon\Base;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use MrPrompt\ShipmentCommon\Base\Holder;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 
 /**
  * Holder test case.
@@ -66,7 +66,7 @@ class HolderTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Holder::setCode()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setCodeThrowsExceptionWhenNotNumericValue()
     {
@@ -76,20 +76,10 @@ class HolderTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Holder::setCode()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setCodeOnlyThrowsExceptionWhenEmpty()
     {
         $this->holder->setCode('');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Holder::setCode()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setCodeOnlyThrowsExceptionWhenNotIntegerValue()
-    {
-        $this->holder->setCode(7.9837);
     }
 }

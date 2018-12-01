@@ -1,10 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use InvalidArgumentException;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Client
  *
@@ -20,7 +16,7 @@ class Client
     /**
      * @param int $code
      */
-    public function __construct($code = null)
+    public function __construct(int $code = null)
     {
         $this->code = $code;
     }
@@ -28,24 +24,16 @@ class Client
     /**
      * @return int
      */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
 
     /**
      * @param int $code
-     * @return void
-     * @throws InvalidArgumentException
      */
-    public function setCode($code)
+    public function setCode(int $code)
     {
-        try {
-            Validator::numeric()->assert($code);
-
-            $this->code = $code;
-        } catch (AllOfException $ex) {
-            throw new InvalidArgumentException(sprintf('Code must be a numeric value, %s is invalid', $code));
-        }
+        $this->code = $code;
     }
 }

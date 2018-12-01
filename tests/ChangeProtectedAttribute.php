@@ -1,8 +1,5 @@
 <?php
-/**
- * @license public
- */
-namespace MrPrompt\ShipmentCommon\Util;
+namespace MrPrompt\Tests\ShipmentCommon;
 
 use ReflectionProperty;
 

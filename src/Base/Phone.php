@@ -1,7 +1,5 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
 
 /**
  * Phone number
@@ -35,7 +33,7 @@ class Phone
      *
      * @param int $type
      */
-    public function __construct($type = self::TELEPHONE)
+    public function __construct(int $type = self::TELEPHONE)
     {
         $this->setType($type);
     }
@@ -51,21 +49,15 @@ class Phone
     /**
      * @param int $number
      */
-    public function setNumber($number)
+    public function setNumber(int $number)
     {
-        try {
-            Validator::stringType()->notEmpty()->length(8, 20)->assert($number);
-
-            $this->number = $number;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid phone number: %s', $number));
-        }
+        $this->number = $number;
     }
 
     /**
      * @return int
      */
-    public function getType()
+    public function getType(): int
     {
         return $this->type;
     }
@@ -73,14 +65,8 @@ class Phone
     /**
      * @param int $type
      */
-    public function setType($type)
+    public function setType(int $type = self::CELLPHONE)
     {
-        try {
-            Validator::intType()->in([self::CELLPHONE, self::TELEPHONE])->assert($type);
-
-            $this->type = $type;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid phone type: %s', $type));
-        }
+        $this->type = $type;
     }
 }

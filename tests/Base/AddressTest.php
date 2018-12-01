@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Address;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -74,19 +74,6 @@ class AddressTest extends TestCase
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setCity()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setCityThrowsExceptionWhenExceedMaxLength()
-    {
-        $city   = str_pad('x', 201, 'x');
-        $result = $this->address->setCity($city);
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getState()
      */
     public function getStateReturnStateAttribute()
@@ -118,16 +105,6 @@ class AddressTest extends TestCase
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setState()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setStateThrowsExceptionWhenDiferentOfTwoChars()
-    {
-        $this->assertNull($this->address->setState('SCS'));
-    }
-
-    /**
-     * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getPostalCode()
      */
     public function getPostalCodeReturnPostalCodeAttribute()
@@ -146,42 +123,6 @@ class AddressTest extends TestCase
     public function setPostalCodeReturnNull()
     {
         $result = $this->address->setPostalCode('88080090');
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setPostalCode()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setPostalCodeThrowsExceptionWhenExceedMaxLength()
-    {
-        $result = $this->address->setPostalCode('8808009012');
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setPostalCode()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setPostalCodeThrowsExceptionWhenEmpty()
-    {
-        $result = $this->address->setPostalCode('');
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setPostalCode()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setPostalCodeThrowsExceptionWhenMinorOfMinLength()
-    {
-        $result = $this->address->setPostalCode('88090');
 
         $this->assertNull($result);
     }
@@ -219,16 +160,6 @@ class AddressTest extends TestCase
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setAddress()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setAddressThrowsExceptionWhenExceedMaxLength()
-    {
-        $this->assertNull($this->address->setAddress(str_pad('x', 160, 'x')));
-    }
-
-    /**
-     * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getNumber()
      */
     public function getNumberReturnNumberAttribute()
@@ -247,16 +178,6 @@ class AddressTest extends TestCase
     public function setNumberReturnNull()
     {
         $this->assertNull($this->address->setNumber(1));
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setNumber()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setNumberThrowsExceptionWhenNotNumber()
-    {
-        $this->assertNull($this->address->setNumber('A2'));
     }
 
     /**
@@ -283,16 +204,6 @@ class AddressTest extends TestCase
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setDistrict()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setDistrictThrowsExceptionWhenExceedMaximumValue()
-    {
-        $this->assertNull($this->address->setDistrict(str_pad('x', 201, 'x')));
-    }
-
-    /**
-     * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getComplement()
      */
     public function getComplementReturnComplementAttribute()
@@ -311,15 +222,5 @@ class AddressTest extends TestCase
     public function setComplementReturnNull()
     {
         $this->assertNull($this->address->setComplement('lalajd'));
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Address::setComplement()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setComplementThrowsExceptionWhenExceedMaximumValue()
-    {
-        $this->assertNull($this->address->setComplement(str_pad('x', 201, 'x')));
     }
 }

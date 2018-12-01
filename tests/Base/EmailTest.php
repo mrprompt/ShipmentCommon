@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Email;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use MrPrompt\Tests\ShipmentCommon\Mock;
 use PHPUnit\Framework\TestCase;
 
@@ -79,21 +79,6 @@ class EmailTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Email::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\Email::setAddress()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setAddressThrowsExceptionWhenAddressIsInvalid()
-    {
-        $address = '1234';
-
-        $result = $this->email->setAddress($address);
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Email::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Email::getPrimary()
      */
     public function getPrimaryReturnPrimaryAttribute()
@@ -123,19 +108,6 @@ class EmailTest extends TestCase
     public function setPrimaryReturnNull()
     {
         $result = $this->email->setPrimary(true);
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Email::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\Email::setPrimary()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setPrimaryThrowsExceptionPrimaryIsNotBoolean()
-    {
-        $result = $this->email->setPrimary('true');
 
         $this->assertNull($result);
     }

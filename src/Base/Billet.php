@@ -2,7 +2,6 @@
 namespace MrPrompt\ShipmentCommon\Base;
 
 use ArrayObject;
-use MrPrompt\Centercob\Shipment\Partial\Detail;
 
 /**
  * Credit card
@@ -61,9 +60,9 @@ class Billet
     }
 
     /**
-     * @param Detail $detail
+     * @param object $detail
      */
-    public function addDetail(Detail $detail)
+    public function addDetail(\stdClass $detail)
     {
         $this->details->append($detail);
     }

@@ -2,15 +2,20 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.3/phpunit.xsd"
     bootstrap="./vendor/autoload.php" colors="true" backupGlobals="false"
-    backupStaticAttributes="false" verbose="true"
-    stopOnError="true" stopOnFailure="false" stopOnIncomplete="true" stopOnSkipped="true">
+    backupStaticAttributes="false" verbose="true">
     <php>
         <const name="APPLICATION_ENV" value="testing"/>
     </php>
 
     <testsuites>
-        <testsuite name="Common">
-            <directory>./tests</directory>
+        <testsuite name="Base">
+            <directory>./tests/Base</directory>
+        </testsuite>
+        <testsuite name="Type">
+            <directory>./tests/Type</directory>
+        </testsuite>
+        <testsuite name="Util">
+            <directory>./tests/Util</directory>
         </testsuite>
     </testsuites>
 

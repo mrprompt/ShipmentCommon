@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Dealership;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
@@ -63,16 +63,6 @@ class DealershipTest extends TestCase
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Dealership::setCode()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setCodeThrowsExceptionWhenExceedMaxLengh()
-    {
-        $this->assertNull($this->dealership->setCode('999999999'));
-    }
-
-    /**
-     * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Dealership::getName()
      */
     public function getNameReturnNameAttribute()
@@ -89,15 +79,5 @@ class DealershipTest extends TestCase
     public function setNameMustBeReturnNull()
     {
         $this->assertNull($this->dealership->setName('1'));
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Dealership::setName()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setNameThrowsExceptionWhenEmpty()
-    {
-        $this->assertNull($this->dealership->setName(''));
     }
 }

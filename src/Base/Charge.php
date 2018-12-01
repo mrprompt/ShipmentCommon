@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Charge
  *
@@ -76,6 +73,20 @@ class Charge
     private $occurrence = Occurrence::INSERT;
 
     /**
+     * Valid types
+     * 
+     * @var array
+     */
+    private $validTypes = [
+        self::BILLET,
+        self::CREDIT_CARD,
+        self::DEBIT,
+        self::ENERGY,
+        self::BATCH_FILE,
+        self::PAYMENT_SLIP
+    ];
+
+    /**
      * @return the $charging
      */
     public function getCharging()
@@ -86,24 +97,13 @@ class Charge
     /**
      * @param string $charging
      */
-    public function setCharging($charging)
+    public function setCharging(string $charging)
     {
-        try {
-            $validTypes = [
-                self::BILLET,
-                self::CREDIT_CARD,
-                self::DEBIT,
-                self::ENERGY,
-                self::BATCH_FILE,
-                self::PAYMENT_SLIP
-            ];
-
-            Validator::create()->notEmpty()->alpha()->in($validTypes)->assert($charging);
-
-            $this->charging = $charging;
-        } catch (AllOfException $ex) {
+        if (!in_array($charging, $this->validTypes)) {
             throw new \InvalidArgumentException(sprintf('Invalid charge type: %s', $charging));
         }
+
+        $this->charging = $charging;
     }
 
     /**

@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Bank Account
  *
@@ -12,32 +9,32 @@ use Respect\Validation\Validator;
 class BankAccount
 {
     /**
-     * @var string
+     * @var int
      */
     private $account;
 
     /**
-     * @var string
+     * @var int
      */
-    private $accountDigit;
+    private $digit;
 
     /**
-     * @var string
+     * @var int
      */
-    private $accountOperation;
+    private $operation;
 
     /**
-     * @var boolean
+     * @var bool
      */
     private $security = false;
 
     /**
-     * @var BankInterface
+     * @var Bank
      */
     private $bank;
 
     /**
-     * @var Person
+     * @var Holder
      */
     private $holder;
 
@@ -49,13 +46,12 @@ class BankAccount
     {
         $this->bank     = $bank;
         $this->holder   = $holder;
-        $this->security = false;
     }
 
     /**
      * @return int
      */
-    public function getNumber()
+    public function getNumber(): int
     {
         return $this->account;
     }
@@ -63,87 +59,63 @@ class BankAccount
     /**
      * @param  int $account
      */
-    public function setNumber($account)
+    public function setNumber(int $account)
     {
-        try {
-            Validator::create()->numeric()->assert($account);
-
-            $this->account = $account;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid account number: %s', $account));
-        }
+        $this->account = $account;
     }
 
     /**
      * @return int
      */
-    public function getDigit()
+    public function getDigit(): int
     {
-        return $this->accountDigit;
+        return $this->digit;
     }
 
     /**
-     * @param  int $accountDigit
+     * @param  int $digit
      */
-    public function setDigit($accountDigit)
+    public function setDigit(int $digit)
     {
-        try {
-            Validator::create()->numeric()->assert($accountDigit);
-
-            $this->accountDigit = $accountDigit;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid account digit: %s', $accountDigit));
-        }
+        $this->digit = $digit;
     }
 
     /**
      * @return int
      */
-    public function getOperation()
+    public function getOperation(): int
     {
-        return $this->accountOperation;
+        return $this->operation;
     }
 
     /**
-     * @param  string $accountOperation
+     * @param  string $operation
      */
-    public function setOperation($accountOperation)
+    public function setOperation(int $operation)
     {
-        try {
-            Validator::create()->numeric()->assert($accountOperation);
-
-            $this->accountOperation = $accountOperation;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid operation: %s', $accountOperation));
-        }
+        $this->operation = $operation;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
-    public function getSecurity()
+    public function getSecurity(): bool
     {
         return $this->security;
     }
 
     /**
-     * @param  boolean $security
+     * @param  bool $security
      */
-    public function setSecurity($security = false)
+    public function setSecurity(bool $security = false)
     {
-        try {
-            Validator::create()->boolType()->assert($security);
-
-            $this->security = $security;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Security life must be true or false', $security));
-        }
+        $this->security = $security;
     }
 
     /**
      * @return Bank
      */
-    public function getBank()
+    public function getBank(): Bank
     {
         return $this->bank;
     }
@@ -157,9 +129,9 @@ class BankAccount
     }
 
     /**
-     * @return Person
+     * @return Holder
      */
-    public function getHolder()
+    public function getHolder(): Holder
     {
         return $this->holder;
     }

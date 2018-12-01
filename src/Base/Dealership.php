@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Dealership
  *
@@ -26,7 +23,7 @@ class Dealership
      *
      * @return int
      */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
@@ -36,21 +33,15 @@ class Dealership
      *
      * @param int $code
      */
-    public function setCode($code)
+    public function setCode(int $code)
     {
-        try {
-            Validator::stringType()->length(null, 6)->assert($code);
-
-            $this->code = $code;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid dealership code: %s', $code));
-        }
+        $this->code = $code;
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -58,14 +49,8 @@ class Dealership
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
-        try {
-            Validator::create()->notEmpty()->assert($name);
-
-            $this->name = $name;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid dealership name: %s', $name));
-        }
+        $this->name = $name;
     }
 }

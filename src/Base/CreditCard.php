@@ -2,8 +2,6 @@
 namespace MrPrompt\ShipmentCommon\Base;
 
 use DateTime;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
 
 /**
  * Credit card
@@ -28,30 +26,6 @@ class CreditCard
     const SICREDI       = 66;
     const COOPERCRED    = 67;
     const AVISTA        = 68;
-
-    /**
-     * Valid flags
-     *
-     * @var array
-     */
-    private $flags = [
-        self::AMEX,
-        self::MASTERCARD,
-        self::HIPERCARD,
-        self::DINNERS,
-        self::DISCOVER,
-        self::VISA,
-        self::AURA,
-        self::ELO,
-        self::GOODCARD,
-        self::JCB,
-        self::MAIS,
-        self::CABAL,
-        self::SOROCRED,
-        self::SICREDI,
-        self::COOPERCRED,
-        self::AVISTA
-    ];
 
     /**
      *
@@ -79,15 +53,15 @@ class CreditCard
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(DateTime $validate = null)
     {
-        $this->validate = new DateTime();
+        $this->validate = $validate ?? new DateTime();
     }
 
     /**
      * @return the $number
      */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -95,21 +69,15 @@ class CreditCard
     /**
      * @param string $number
      */
-    public function setNumber($number)
+    public function setNumber(string $number)
     {
-        try {
-            Validator::create()->notEmpty()->creditCard()->assert($number);
-
-            $this->number = $number;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid credit card number: %s', $number));
-        }
+        $this->number = $number;
     }
 
     /**
      * @return the $validate
      */
-    public function getValidate()
+    public function getValidate(): DateTime
     {
         return $this->validate;
     }
@@ -125,7 +93,7 @@ class CreditCard
     /**
      * @return the $security
      */
-    public function getSecurityNumber()
+    public function getSecurityNumber(): string
     {
         return $this->security;
     }
@@ -133,36 +101,24 @@ class CreditCard
     /**
      * @param string $security
      */
-    public function setSecurityNumber($security)
+    public function setSecurityNumber(string $security)
     {
-        try {
-            Validator::create()->notEmpty()->numeric()->assert($security);
-
-            $this->security = $security;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid security number: %s', $security));
-        }
+        $this->security = $security;
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getFlag()
+    public function getFlag(): int
     {
         return $this->flag;
     }
 
     /**
-     * @param string $flag
+     * @param int $flag
      */
-    public function setFlag($flag)
+    public function setFlag(int $flag)
     {
-        try {
-            Validator::create()->notEmpty()->numeric()->in($this->flags)->assert($flag);
-
-            $this->flag = $flag;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid flag: %s', $flag));
-        }
+        $this->flag = $flag;
     }
 }

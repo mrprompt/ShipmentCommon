@@ -1,10 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use InvalidArgumentException;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Seller
  *
@@ -20,24 +16,16 @@ class Seller extends Person
     /**
      * @return int
      */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
 
     /**
      * @param int $code
-     * @return void
-     * @throws InvalidArgumentException
      */
-    public function setCode($code)
+    public function setCode(int $code)
     {
-        try {
-            Validator::notEmpty()->assert($code);
-
-            $this->code = $code;
-        } catch (AllOfException $ex) {
-            throw new InvalidArgumentException(sprintf('Invalid seller code %s', $code));
-        }
+        $this->code = $code;
     }
 }

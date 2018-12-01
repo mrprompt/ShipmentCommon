@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Document;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
@@ -74,7 +74,7 @@ class DocumentTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Document::__construct
      * @covers \MrPrompt\ShipmentCommon\Base\Document::setType
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setTypeThrowsExceptionWhenInvalidtype()
     {
@@ -85,7 +85,7 @@ class DocumentTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Document::__construct
      * @covers \MrPrompt\ShipmentCommon\Base\Document::setType
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setTypeThrowsExceptionWhenEmptyValue()
     {
@@ -112,19 +112,6 @@ class DocumentTest extends TestCase
     public function setNumberMustBeReturnNull()
     {
         $result = $this->document->setNumber('11122233344');
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Document::__construct
-     * @covers \MrPrompt\ShipmentCommon\Base\Document::setNumber
-     * @expectedException \InvalidArgumentException
-     */
-    public function setNumberThrowsExceptionWhenExceedMaxLength()
-    {
-        $result = $this->document->setNumber(str_pad(0, 20, 0));
 
         $this->assertNull($result);
     }

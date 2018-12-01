@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Parcel;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use DateTime;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
@@ -95,7 +95,7 @@ class ParcelTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setPrice()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setPriceThrowsExceptionWhenReceiveNotNumericValue()
     {
@@ -105,7 +105,7 @@ class ParcelTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setPrice()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setPriceThrowsExceptionWhenReceiveEmptyValue()
     {
@@ -139,7 +139,7 @@ class ParcelTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setKey()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setKeyThrowsExceptionWhenReceiveNotNumericValue()
     {
@@ -173,7 +173,7 @@ class ParcelTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setQuantity()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setQuantityThrowsExceptionWhenReceiveNotNumericValue()
     {
@@ -183,7 +183,7 @@ class ParcelTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setQuantity()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setQuantityThrowsExceptionWhenReceiveEmptyValue()
     {
