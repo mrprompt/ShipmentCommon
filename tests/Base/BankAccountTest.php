@@ -68,7 +68,7 @@ class BankAccountTest extends TestCase
     {
         $digit = 03;
 
-        $this->modifyAttribute($this->bank, 'accountDigit', $digit);
+        $this->modifyAttribute($this->bank, 'digit', $digit);
 
         $this->assertEquals($digit, $this->bank->getDigit());
     }
@@ -82,7 +82,7 @@ class BankAccountTest extends TestCase
     {
         $operation = 013;
 
-        $this->modifyAttribute($this->bank, 'accountOperation', $operation);
+        $this->modifyAttribute($this->bank, 'operation', $operation);
 
         $this->assertEquals($operation, $this->bank->getOperation());
     }
@@ -108,7 +108,7 @@ class BankAccountTest extends TestCase
      */
     public function getSecurityReturnSecurityAttribute()
     {
-        $security = 'N';
+        $security = true;
 
         $this->modifyAttribute($this->bank, 'security', $security);
 
@@ -143,7 +143,7 @@ class BankAccountTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\BankAccount::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\BankAccount::setNumber()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setNumberThrowsExceptionWhenReceiveNotNumberValue()
     {
@@ -164,7 +164,7 @@ class BankAccountTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\BankAccount::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\BankAccount::setDigit()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setDigitThrowsExceptionWhenReceiveNotNumberValue()
     {
@@ -185,7 +185,7 @@ class BankAccountTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\BankAccount::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\BankAccount::setOperation()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setOperationThrowsExceptionWhenReceiveNotNumberValue()
     {
@@ -200,17 +200,6 @@ class BankAccountTest extends TestCase
     public function setSecurityReturnNull()
     {
         $this->assertNull($this->bank->setSecurity(true));
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\BankAccount::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\BankAccount::setSecurity()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setSecurityThrowsExceptionWhenReceiveNotBooleanValue()
-    {
-        $this->assertNull($this->bank->setSecurity('S'));
     }
 
     /**

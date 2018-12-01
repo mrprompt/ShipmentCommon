@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  *
  * @author Thiago Paes <mrprompt@gmail.com>
@@ -33,33 +30,23 @@ class Customer extends Person
     /**
      * @return int
      */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
 
     /**
      * @param int $code
-     * @return void
      */
-    public function setCode($code)
+    public function setCode(int $code)
     {
-        try {
-            Validator
-                ::create()
-                ->notEmpty()
-                ->assert($code);
-
-            $this->code = $code;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid customer code: %s', $code));
-        }
+        $this->code = $code;
     }
 
     /**
      * @return int
      */
-    public function getIdentityNumber()
+    public function getIdentityNumber(): int
     {
         return $this->identityNumber;
     }
@@ -67,26 +54,15 @@ class Customer extends Person
     /**
      * @param int $identityNumber
      */
-    public function setIdentityNumber($identityNumber)
+    public function setIdentityNumber(int $identityNumber)
     {
-        try {
-            $number = floor($identityNumber);
-
-            Validator
-                ::create()
-                ->notEmpty()
-                ->assert($number);
-
-            $this->identityNumber = $number;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid identity number: %s', $identityNumber));
-        }
+        $this->identityNumber = $identityNumber;
     }
 
     /**
      * @return mixed
      */
-    public function getHelpfulMaturity()
+    public function getHelpfulMaturity(): bool
     {
         return $this->helpfulMaturity;
     }
@@ -94,24 +70,15 @@ class Customer extends Person
     /**
      * @param boolean $helpfulMaturity
      */
-    public function setHelpfulMaturity($helpfulMaturity = true)
+    public function setHelpfulMaturity(bool $helpfulMaturity = true)
     {
-        try {
-            Validator
-                ::create()
-                ->boolType()
-                ->assert($helpfulMaturity);
-
-            $this->helpfulMaturity = $helpfulMaturity;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid helpful maturity state: %s', $helpfulMaturity));
-        }
+        $this->helpfulMaturity = $helpfulMaturity;
     }
 
     /**
      * @return int
      */
-    public function getWorkingDays()
+    public function getWorkingDays(): int
     {
         return $this->workingDays;
     }
@@ -119,18 +86,8 @@ class Customer extends Person
     /**
      * @param int $workingDays
      */
-    public function setWorkingDays($workingDays)
+    public function setWorkingDays(int $workingDays)
     {
-        try {
-            Validator
-                ::create()
-                ->notEmpty()
-                ->intType()
-                ->assert($workingDays);
-
-            $this->workingDays = $workingDays;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid working days: %s', $workingDays));
-        }
+        $this->workingDays = $workingDays;
     }
 }

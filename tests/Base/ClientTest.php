@@ -72,7 +72,7 @@ class ClientTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Client::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Client::setCode()
-     * @expectedException InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setCodeOnlyAcceptIntegerValue()
     {

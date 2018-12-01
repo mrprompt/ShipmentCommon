@@ -71,7 +71,7 @@ class ConsumerUnityTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\ConsumerUnity::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\ConsumerUnity::setNumber()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setNumberThrowsExceptionWhenEmpty()
     {
@@ -155,7 +155,7 @@ class ConsumerUnityTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Consumerunity::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Consumerunity::setCode()
-     * @expectedException InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setCodeOnlyAcceptIntegerValue()
     {

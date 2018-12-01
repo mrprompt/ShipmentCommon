@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Document
  *
@@ -37,7 +34,7 @@ class Document
     /**
      * @param int $type
      */
-    public function __construct($type = self::CPF)
+    public function __construct(int $type = self::CPF)
     {
         $this->setType($type);
     }
@@ -45,7 +42,7 @@ class Document
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): int
     {
         return $this->type;
     }
@@ -53,25 +50,15 @@ class Document
     /**
      * @param string $type
      */
-    public function setType($type)
+    public function setType(int $type)
     {
-        try {
-            Validator
-                ::intType()
-                ->notEmpty()
-                ->in([self::CPF, self::CNPJ])
-                ->assert($type);
-
-            $this->type = $type;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid document type: %s', $type));
-        }
+        $this->type = $type;
     }
 
     /**
      * @return mixed
      */
-    public function getNumber()
+    public function getNumber(): int
     {
         return $this->number;
     }
@@ -79,17 +66,8 @@ class Document
     /**
      * @param mixed $number
      */
-    public function setNumber($number)
+    public function setNumber(int $number)
     {
-        try {
-            Validator
-                ::stringType()
-                ->length(11, 18)
-                ->assert($number);
-
-            $this->number = $number;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Document #%s is invalid', $number));
-        }
+        $this->number = $number;
     }
 }

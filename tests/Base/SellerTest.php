@@ -68,7 +68,7 @@ class SellerTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Seller::setCode()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setCodeMustBeThrowsInvalidArgumentExceptionWhenEmpty()
     {

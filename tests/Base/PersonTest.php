@@ -291,17 +291,6 @@ class PersonTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Person::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\Person::setPerson()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setPersonThrowsExceptionWhenEmpty()
-    {
-        $this->person->setPerson('');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Person::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Person::getSalaried()
      */
     public function getSalariedMustBeReturnSalariedAttribute()

@@ -86,39 +86,6 @@ class CreditCardTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::setNumber()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setNumberThrowsExceptionWhenNotValidCard()
-    {
-        $this->card->setNumber('333232');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::setNumber()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setNumberThrowsExceptionWhenEmpty()
-    {
-        $this->card->setNumber('');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::setNumber()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setNumberThrowsExceptionWhenNotNumericValue()
-    {
-        $this->card->setNumber('938SDS@');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::getValidate()
      */
     public function getValidateMustBeReturnCreditCardValidateAttribute()
@@ -147,9 +114,9 @@ class CreditCardTest extends TestCase
      */
     public function getSecurityNumberMustBeReturnCreditCardSecurityNumberAttribute()
     {
-        $this->modifyAttribute($this->card, 'security', 232);
+        $this->modifyAttribute($this->card, 'security', '232');
 
-        $this->assertSame(232, $this->card->getSecurityNumber());
+        $this->assertSame('232', $this->card->getSecurityNumber());
     }
 
     /**
@@ -161,17 +128,6 @@ class CreditCardTest extends TestCase
     public function setSecurityNumberMustBeReturnNull($card)
     {
         $this->assertNull($this->card->setSecurityNumber($card['security']));
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::__construct
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::setSecurityNumber
-     * @expectedException \InvalidArgumentException
-     */
-    public function setSecurityNumberrThrowsExceptionNotNumericValue()
-    {
-        $this->card->setSecurityNumber('SDS');
     }
 
     /**
@@ -195,19 +151,6 @@ class CreditCardTest extends TestCase
     public function setFlagMustBeReturnNull($card)
     {
         $result = $this->card->setFlag($card['flag']);
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\CreditCard::setFlag()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setFlagMustBeReturnThrowsExceptionWhenEmpty()
-    {
-        $result = $this->card->setFlag('Mastercard');
 
         $this->assertNull($result);
     }

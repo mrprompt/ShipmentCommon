@@ -2,8 +2,6 @@
 namespace MrPrompt\ShipmentCommon\Base;
 
 use DateTime;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
 
 /**
  * Consumer Unity
@@ -20,20 +18,6 @@ class ConsumerUnity
     const CELESC            = 26;
     const RGE_RS            = 31;
     const COELCE            = 73;
-
-    /**
-     * @var array
-     */
-    private $codes = [
-        self::BANDEIRANTE,
-        self::CPFL,
-        self::CPFL_PIRATININGA,
-        self::AMPLA,
-        self::ESCELSA_ES,
-        self::CELESC,
-        self::RGE_RS,
-        self::COELCE,
-    ];
 
     /**
      * @var int
@@ -57,11 +41,14 @@ class ConsumerUnity
 
     /**
      * Constructor
+     * 
+     * @param DateTime $read
+     * @param DateTime $maturity
      */
-    public function __construct()
+    public function __construct(DateTime $read = null, DateTime $maturity = null)
     {
-        $this->read     = new DateTime();
-        $this->maturity = new DateTime();
+        $this->read     = $read ?? new DateTime();
+        $this->maturity = $maturity ?? new DateTime();
     }
 
     /**
@@ -69,7 +56,7 @@ class ConsumerUnity
      *
      * @return int
      */
-    public function getNumber()
+    public function getNumber(): int
     {
         return $this->number;
     }
@@ -78,23 +65,16 @@ class ConsumerUnity
      * Set the consumer number
      *
      * @param int $number
-     * @return void
      */
-    public function setNumber($number)
+    public function setNumber(int $number)
     {
-        try {
-            Validator::create()->notEmpty()->assert($number);
-
-            $this->number = $number;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Number of consumer unity %s is invalid', $number));
-        }
+        $this->number = $number;
     }
 
     /**
-     * @return mixed
+     * @return DateTime
      */
-    public function getRead()
+    public function getRead(): DateTime
     {
         return $this->read;
     }
@@ -110,7 +90,7 @@ class ConsumerUnity
     /**
      * @return DateTime
      */
-    public function getMaturity()
+    public function getMaturity(): DateTime
     {
         return $this->maturity;
     }
@@ -126,7 +106,7 @@ class ConsumerUnity
     /**
      * @return number
      */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
@@ -134,14 +114,8 @@ class ConsumerUnity
     /**
      * @param number $code
      */
-    public function setCode($code)
+    public function setCode(int $code)
     {
-        try {
-            Validator::create()->notEmpty()->numeric()->in($this->codes)->assert($code);
-
-            $this->code = $code;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid consumer unity value %s', $code));
-        }
+        $this->code = $code;
     }
 }

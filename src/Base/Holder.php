@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Holder
  *
@@ -19,7 +16,7 @@ class Holder extends Person
     /**
      * @return int
      */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
@@ -28,18 +25,8 @@ class Holder extends Person
      * @param int $code
      * @return void
      */
-    public function setCode($code)
+    public function setCode(int $code)
     {
-        try {
-            Validator
-                ::create()
-                ->notEmpty()
-                ->intType()
-                ->assert($code);
-
-            $this->code = $code;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Holder code %s is invalid', $code));
-        }
+        $this->code = $code;
     }
 }

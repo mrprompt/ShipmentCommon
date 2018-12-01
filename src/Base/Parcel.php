@@ -2,8 +2,6 @@
 namespace MrPrompt\ShipmentCommon\Base;
 
 use DateTime;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
 
 /**
  * Parcel
@@ -37,7 +35,7 @@ class Parcel
     /**
      * @return the $maturity
      */
-    public function getMaturity()
+    public function getMaturity(): DateTime
     {
         return $this->maturity;
     }
@@ -53,7 +51,7 @@ class Parcel
     /**
      * @return the $price
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->price;
     }
@@ -61,21 +59,15 @@ class Parcel
     /**
      * @param float $price
      */
-    public function setPrice($price)
+    public function setPrice(float $price)
     {
-        try {
-            Validator::create()->notEmpty()->numeric()->assert($price);
-
-            $this->price = $price;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid parcel price: %s', $price));
-        }
+        $this->price = $price;
     }
 
     /**
      * @return int
      */
-    public function getKey()
+    public function getKey(): int
     {
         return $this->key;
     }
@@ -83,21 +75,15 @@ class Parcel
     /**
      * @param int $key
      */
-    public function setKey($key = 0)
+    public function setKey(int $key = 0)
     {
-        try {
-            Validator::numeric()->assert($key);
-
-            $this->key = (int) $key;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid parcel key: %s', $key));
-        }
+        $this->key = (int) $key;
     }
 
     /**
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->quantity;
     }
@@ -105,14 +91,8 @@ class Parcel
     /**
      * @param int $quantity
      */
-    public function setQuantity($quantity)
+    public function setQuantity(int $quantity = 1)
     {
-        try {
-            Validator::create()->notEmpty()->numeric()->assert($quantity);
-
-            $this->quantity = $quantity;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid parcel quantity: %s', $quantity));
-        }
+        $this->quantity = $quantity;
     }
 }

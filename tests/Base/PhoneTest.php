@@ -78,22 +78,7 @@ class PhoneTest extends TestCase
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Phone::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Phone::setNumber()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setNumberThrowsExceptionWhenNumberIsToShort()
-    {
-        $number = '1234';
-
-        $result = $this->phone->setNumber($number);
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Phone::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\Phone::setNumber()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setNumberThrowsExceptionWhenNumberIsToLong()
     {
@@ -126,19 +111,6 @@ class PhoneTest extends TestCase
         $type   = Phone::CELLPHONE;
 
         $result = $this->phone->setType($type);
-
-        $this->assertNull($result);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Phone::__construct()
-     * @covers \MrPrompt\ShipmentCommon\Base\Phone::setType()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setTypeThrowsExceptionWhenNotInPreDefinedConstants()
-    {
-        $result = $this->phone->setType(4);
 
         $this->assertNull($result);
     }

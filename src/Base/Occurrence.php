@@ -2,8 +2,6 @@
 namespace MrPrompt\ShipmentCommon\Base;
 
 use DateTime;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
 
 /**
  * Occurrence
@@ -62,7 +60,7 @@ class Occurrence
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -70,21 +68,15 @@ class Occurrence
     /**
      * @param string $type
      */
-    public function setType($type)
+    public function setType(string $type)
     {
-        try {
-            Validator::in([self::INSERT, self::CANCEL, self::UPDATE])->assert($type);
-
-            $this->type = $type;
-        } catch (AllOfException $e) {
-            throw new \InvalidArgumentException(sprintf('Invalid occurrence type: %S', $type));
-        }
+        $this->type = $type;
     }
 
     /**
      * @return int
      */
-    public function getReturn()
+    public function getReturn(): int
     {
         return $this->return;
     }
@@ -92,21 +84,15 @@ class Occurrence
     /**
      * @param int $return
      */
-    public function setReturn($return = 0)
+    public function setReturn(int $return = 0)
     {
-        try {
-            Validator::numeric()->assert($return);
-
-            $this->return = $return;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid occurrence return value: %s', $return));
-        }
+        $this->return = $return;
     }
 
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -114,21 +100,15 @@ class Occurrence
     /**
      * @param string $description
      */
-    public function setDescription($description = '')
+    public function setDescription(string $description = '')
     {
-        try {
-            Validator::stringType()->assert($description);
-
-            $this->description = $description;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid description: %s', $description));
-        }
+        $this->description = $description;
     }
 
     /**
      * @return DateTime
      */
-    public function getDate()
+    public function getDate(): DateTime
     {
         return $this->date;
     }

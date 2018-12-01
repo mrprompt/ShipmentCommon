@@ -66,8 +66,9 @@ class CustomerTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setCode()
+     * @expectedException \TypeError
      */
-    public function setCodeMustBeReturnNullWhenReceiveNotNumericValue()
+    public function setCodeThrowsExceptionWhenReceiveNotNumericValue()
     {
         $this->assertNull($this->customer->setCode('A'));
     }
@@ -75,7 +76,7 @@ class CustomerTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setCode()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setCodeOnlyThrowsExceptionWhenEmpty()
     {
@@ -115,7 +116,7 @@ class CustomerTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setIdentityNumber()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setIdentityNumberThrowsExceptionWhenNotNumericValue()
     {
@@ -125,7 +126,7 @@ class CustomerTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setIdentityNumber()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setIdentityNumberThrowsExceptionWhenEmpty()
     {
@@ -155,7 +156,7 @@ class CustomerTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setWorkingDays()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setWorkingDaysThrowsExceptionWhenNotNumericValue()
     {
@@ -165,21 +166,11 @@ class CustomerTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setWorkingDays()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setWorkingDaysThrowsExceptionWhenEmpty()
     {
         $this->customer->setWorkingDays('');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Customer::setWorkingDays()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setWorkingDaysThrowsExceptionWhenNotInteger()
-    {
-        $this->customer->setWorkingDays(5.43);
     }
 
     /**
@@ -200,35 +191,5 @@ class CustomerTest extends TestCase
     public function setHelpfulMaturityReturnNullWhenReceiveBooleanValue()
     {
         $this->assertNull($this->customer->setHelpfulMaturity(true));
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Customer::setHelpfulMaturity()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setHelpfulMaturityThrowsExceptionWhenNotBooleanValue()
-    {
-        $this->customer->setHelpfulMaturity('A');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Customer::setHelpfulMaturity()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setHelpfulMaturityThrowsExceptionWhenReceiveEmpty()
-    {
-        $this->customer->setHelpfulMaturity('');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Customer::setHelpfulMaturity()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setHelpfulMaturityThrowsExceptionWhenNumeric()
-    {
-        $this->customer->setHelpfulMaturity(5.43);
     }
 }

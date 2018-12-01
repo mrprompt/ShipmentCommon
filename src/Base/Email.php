@@ -1,7 +1,5 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
 
 /**
  * E-mail
@@ -24,7 +22,7 @@ class Email
      * @param string $address
      * @param bool $primary
      */
-    public function __construct($address, $primary = true)
+    public function __construct(string $address = null, bool $primary = true)
     {
         $this->setAddress($address);
         $this->setPrimary($primary);
@@ -33,7 +31,7 @@ class Email
     /**
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->address;
     }
@@ -41,31 +39,23 @@ class Email
     /**
      * @param string $address
      */
-    public function setAddress($address)
+    public function setAddress(string $address)
     {
-        try {
-            Validator::notEmpty()->email()->assert($address);
-
-            $this->address = $address;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(
-                sprintf('E-mails address "%s" is invalid', $address)
-            );
-        }
+        $this->address = $address;
     }
 
     /**
      * @return boolean
      */
-    public function isPrimary()
+    public function isPrimary(): bool
     {
-        return $this->primary;
+        return $this->primary === true;
     }
 
     /**
      * @return boolean
      */
-    public function getPrimary()
+    public function getPrimary(): bool
     {
         return $this->primary;
     }
@@ -73,17 +63,8 @@ class Email
     /**
      * @param boolean $primary
      */
-    public function setPrimary($primary)
+    public function setPrimary(bool $primary = true)
     {
-        try {
-
-            Validator::notEmpty()->boolType()->assert($primary);
-
-            $this->primary = $primary;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(
-                sprintf('The primary only accept boolean value, %s is invalid', $primary)
-            );
-        }
+        $this->primary = $primary;
     }
 }

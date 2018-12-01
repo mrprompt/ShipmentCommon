@@ -74,19 +74,7 @@ class BilletTest extends TestCase
      */
     public function addDetailMustBeReturnNull()
     {
-        $this->markTestIncomplete();
-        $detail = new Detail(
-            $this->customerMock(),
-            $this->chargeMock(),
-            $this->sellerMock(),
-            $this->purchaserMock(),
-            $this->parcelsMock(),
-            $this->authorizationMock(),
-            $this->creditCardMock(),
-            $this->bankAccountMock(),
-            $this->consumerUnityMock(),
-            $this->sequenceMock()
-        );
+        $detail = new \stdClass;
 
         $result = $this->billet->addDetail($detail);
 
