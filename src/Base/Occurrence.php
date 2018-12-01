@@ -43,19 +43,29 @@ class Occurrence
      *
      * @var int
      */
-    private $return;
+    private $return = 0;
 
     /**
      * Occurrence Description
      *
      * @var string
      */
-    private $description;
+    private $description = '';
 
     /**
      * @var DateTime
      */
     private $date;
+
+    public function __construct(
+        string $type = self::INSERT,
+        string $description = '',
+        int $return = 0
+    ) {
+        $this->type = $type;
+        $this->return = $return;
+        $this->description = $description;
+    }
 
     /**
      * @return string

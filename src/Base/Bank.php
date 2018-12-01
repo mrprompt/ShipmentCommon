@@ -36,6 +36,19 @@ class Bank
     private $code;
 
     /**
+     * Constructor
+     */
+    public function __construct(
+        int $agency = 0,
+        int $digit = 0,
+        int $code = 0
+    ) {
+        $this->agency = $agency;
+        $this->digit = $digit;
+        $this->code = $code;
+    }
+
+    /**
      * @return the $agency
      */
     public function getAgency(): int

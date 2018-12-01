@@ -63,14 +63,14 @@ class Charge
      *
      * @var string
      */
-    private $charging   = self::CREDIT_CARD;
+    private $charging;
 
     /**
      * Occurrence
      *
-     * @var string
+     * @var Ocurrence
      */
-    private $occurrence = Occurrence::INSERT;
+    private $occurrence;
 
     /**
      * Valid types
@@ -86,10 +86,18 @@ class Charge
         self::PAYMENT_SLIP
     ];
 
+    public function __construct(
+        string $charging = self::CREDIT_CARD,
+        Occurrence $occurrence = null
+    ) {
+        $this->charging = $charging;
+        $this->occurrence = $occurrence ?? new Occurrence();
+    }
+
     /**
      * @return the $charging
      */
-    public function getCharging()
+    public function getCharging(): string
     {
         return $this->charging;
     }
@@ -109,7 +117,7 @@ class Charge
     /**
      * @return Occurrence
      */
-    public function getOccurrence()
+    public function getOccurrence(): Occurrence
     {
         return $this->occurrence;
     }

@@ -13,9 +13,6 @@ use PHPUnit\Framework\TestCase;
  */
 class DealershipTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -43,6 +40,7 @@ class DealershipTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Dealership::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Dealership::getCode()
      */
     public function getCodeReturnCodeAttribute()
@@ -54,6 +52,7 @@ class DealershipTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Dealership::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Dealership::setCode()
      */
     public function setCodeMustBeReturnNull()
@@ -63,6 +62,7 @@ class DealershipTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Dealership::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Dealership::getName()
      */
     public function getNameReturnNameAttribute()
@@ -74,6 +74,7 @@ class DealershipTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Dealership::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Dealership::setName()
      */
     public function setNameMustBeReturnNull()

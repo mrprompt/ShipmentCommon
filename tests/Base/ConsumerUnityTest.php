@@ -13,9 +13,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ConsumerUnityTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**

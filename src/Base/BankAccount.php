@@ -26,7 +26,7 @@ class BankAccount
     /**
      * @var bool
      */
-    private $security = false;
+    private $security;
 
     /**
      * @var Bank
@@ -39,13 +39,25 @@ class BankAccount
     private $holder;
 
     /**
+     * Constructor
+     * 
      * @param Bank $bank
      * @param Holder $holder
      */
-    public function __construct(Bank $bank, Holder $holder)
-    {
-        $this->bank     = $bank;
-        $this->holder   = $holder;
+    public function __construct(
+        Bank $bank = null, 
+        Holder $holder = null,
+        int $account = 0,
+        int $digit = 0,
+        int $operation = 0,
+        bool $security = false
+    ) {
+        $this->bank     = $bank ?? new Bank;
+        $this->holder   = $holder ?? new Holder;
+        $this->account = $account;
+        $this->digit = $digit;
+        $this->operation = $operation;
+        $this->security = $security;
     }
 
     /**

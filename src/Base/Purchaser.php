@@ -13,67 +13,84 @@ class Purchaser extends Person
      *
      * @var string
      */
-    private $purchaserFantasyName;
+    private $fantasyName;
 
     /**
      * Social Reason
      *
      * @var string
      */
-    private $purchaserSocialReason;
+    private $socialReason;
 
     /**
      * State Registration
      *
      * @var string
      */
-    private $purchaserStateRegistration;
+    private $stateRegistration;
+
+    /**
+     * Constructor
+     * 
+     * @param string $fantasyName
+     * @param string $socialReason
+     * @param string $stateRegistration
+     */
+    public function __construct(
+        string $fantasyName = '',
+        string $socialReason = '',
+        string $stateRegistration = ''
+    ) {
+        $this->fantasyName = $fantasyName;
+        $this->socialReason = $socialReason;
+        $this->stateRegistration = $stateRegistration;
+    }
 
     /**
      * @return string
      */
-    public function getPurchaserStateRegistration(): string
+    public function getStateRegistration(): string
     {
-        return $this->purchaserStateRegistration;
+        return $this->stateRegistration;
     }
 
     /**
-     * @param string $purchaserStateRegistration
+     * @param string $stateRegistration
      */
-    public function setPurchaserStateRegistration(string $purchaserStateRegistration)
+    public function setStateRegistration(string $stateRegistration)
     {
-        $this->purchaserStateRegistration = $purchaserStateRegistration;
+        $this->stateRegistration = $stateRegistration;
     }
 
     /**
-     * @return the $purchaserFantasyName
+     * @return the $fantasyName
      */
-    public function getPurchaserFantasyName(): string
+    public function getFantasyName(): string
     {
-        return $this->purchaserFantasyName;
+        return $this->fantasyName;
     }
 
     /**
-     * @param mixed $purchaserFantasyName
+     * @param mixed $fantasyName
      */
-    public function setPurchaserFantasyName(string $purchaserFantasyName)
+    public function setFantasyName(string $fantasyName)
     {
-        $this->purchaserFantasyName = $purchaserFantasyName;
+        $this->fantasyName = $fantasyName;
     }
 
     /**
-     * @return the $purchaserSocialReason
+     * @return the $socialReason
      */
-    public function getPurchaserSocialReason(): string
+    public function getSocialReason(): string
     {
-        return $this->purchaserSocialReason;
+        return $this->socialReason;
     }
 
     /**
-     * @param mixed $purchaserSocialReason
+     * @param mixed $socialReason
      */
-    public function setPurchaserSocialReason(string $purchaserSocialReason)
+    public function setSocialReason(string $socialReason)
     {
-        $this->purchaserSocialReason = $purchaserSocialReason;
+        $this->socialReason = $socialReason;
     }
 }

@@ -14,9 +14,6 @@ use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
  */
 class PurchaserTest extends TestCase
 {
-    /**
-     * @see \Centercob\Common\Util\ChangeProtectedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -46,72 +43,78 @@ class PurchaserTest extends TestCase
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::getPurchaserStateRegistration()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::getStateRegistration()
      */
-    public function getPurchaserStateRegistrationReturnPurchaserStateRegistrationAttribute()
+    public function getStateRegistrationReturnstateRegistrationAttribute()
     {
         $purchaser = 'foo';
 
-        $this->modifyAttribute($this->purchaser, 'purchaserStateRegistration', $purchaser);
+        $this->modifyAttribute($this->purchaser, 'stateRegistration', $purchaser);
 
-        $this->assertEquals($purchaser, $this->purchaser->getPurchaserStateRegistration());
+        $this->assertEquals($purchaser, $this->purchaser->getStateRegistration());
     }
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::getPurchaserFantasyName()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::getFantasyName()
      */
-    public function getPurchaserFantasyNameReturnPurchaserFantasyNameAttribute()
+    public function getFantasyNameReturnPurchaserFantasyNameAttribute()
     {
         $purchaser = 'foo';
 
-        $this->modifyAttribute($this->purchaser, 'purchaserFantasyName', $purchaser);
+        $this->modifyAttribute($this->purchaser, 'fantasyName', $purchaser);
 
-        $this->assertEquals($purchaser, $this->purchaser->getPurchaserFantasyName());
+        $this->assertEquals($purchaser, $this->purchaser->getFantasyName());
     }
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::getPurchaserSocialReason()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::getSocialReason()
      */
-    public function getPurchaserSocialReasonReturnPurchaserSocialReasonAttribute()
+    public function getSocialReasonReturnPurchaserSocialReasonAttribute()
     {
         $purchaser = 'foo';
 
-        $this->modifyAttribute($this->purchaser, 'purchaserSocialReason', $purchaser);
+        $this->modifyAttribute($this->purchaser, 'socialReason', $purchaser);
 
-        $this->assertEquals($purchaser, $this->purchaser->getPurchaserSocialReason());
+        $this->assertEquals($purchaser, $this->purchaser->getSocialReason());
     }
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::setPurchaserStateRegistration()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::setStateRegistration()
      */
-    public function setPurchaserStateRegistrationReturnEmpty()
+    public function setStateRegistrationReturnEmpty()
     {
-        $result = $this->purchaser->setPurchaserStateRegistration('Foo');
+        $result = $this->purchaser->setStateRegistration('Foo');
 
         $this->assertNull($result);
     }
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::setPurchaserFantasyName()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::setFantasyName()
      */
-    public function setPurchaserFantasyNameReturnEmpty()
+    public function setFantasyNameReturnEmpty()
     {
-        $result = $this->purchaser->setPurchaserFantasyName(1);
+        $result = $this->purchaser->setFantasyName(1);
 
         $this->assertNull($result);
     }
 
     /**
      * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::setPurchaserSocialReason()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Purchaser::setSocialReason()
      */
-    public function setPurchaserSocialReasonReturnEmpty()
+    public function setSocialReasonReturnEmpty()
     {
-        $result = $this->purchaser->setPurchaserSocialReason(1);
+        $result = $this->purchaser->setSocialReason(1);
 
         $this->assertNull($result);
     }

@@ -14,6 +14,16 @@ class Authorization
     private $number;
 
     /**
+     * Constructor
+     * 
+     * @param int $number
+     */
+    public function __construct(int $number = 0)
+    {
+        $this->number = $number;
+    }
+
+    /**
      * @return int
      */
     public function getNumber(): int

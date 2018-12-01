@@ -2,6 +2,7 @@
 namespace MrPrompt\ShipmentCommon\Base;
 
 use ArrayObject;
+use stdClass;
 
 /**
  * Cart
@@ -11,22 +12,20 @@ use ArrayObject;
 class Cart extends ArrayObject
 {
     /**
-     * @param mixed $item
+     * @param stdClass $item
      */
-    public function addItem($item)
+    public function addItem(stdClass $item)
     {
         $this->append($item);
     }
 
     /**
-     * @param mixed $item
+     * @param int $item
      */
-    public function removeItem($item)
+    public function removeItem(int $item): bool
     {
-        if (!$this->offsetExists($item)) {
-            throw new \InvalidArgumentException(sprintf('Item "%s" not exists', $item));
-        }
-
         $this->offsetUnset($item);
+
+        return true;
     }
 }

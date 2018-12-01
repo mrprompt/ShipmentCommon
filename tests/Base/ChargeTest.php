@@ -13,14 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ChargeTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
-
-    /**
-     * @see \Centercob\Tests\Gateway\Mock
-     */
     use Mock;
 
     /**
@@ -50,6 +43,7 @@ class ChargeTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Charge::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Charge::getCharging()
      */
     public function getChargingReturnChargingAttribute()
@@ -63,6 +57,7 @@ class ChargeTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Charge::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Charge::setCharging()
      */
     public function setChargingReturnNull()
@@ -72,6 +67,7 @@ class ChargeTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Charge::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Charge::setCharging()
      * @expectedException \InvalidArgumentException
      */
@@ -82,11 +78,12 @@ class ChargeTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Charge::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Charge::getOccurrence()
      */
     public function getOccurrenceReturnOccurrenceAttribute()
     {
-        $occurrence = 'I';
+        $occurrence = $this->occurrenceMock();
 
         $this->modifyAttribute($this->charge, 'occurrence', $occurrence);
 
@@ -95,6 +92,7 @@ class ChargeTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Charge::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Charge::setOccurrence()
      */
     public function setOccurrenceReturnNull()

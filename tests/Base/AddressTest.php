@@ -41,6 +41,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getCity()
      */
     public function getCityReturnCityAttribute()
@@ -52,6 +53,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setCity()
      */
     public function setCityReturnNull()
@@ -63,6 +65,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setCity()
      */
     public function setCityReturnNullWhenEmpty()
@@ -74,6 +77,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getState()
      */
     public function getStateReturnStateAttribute()
@@ -87,6 +91,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setState()
      */
     public function setStateReturnNull()
@@ -96,6 +101,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setState()
      */
     public function setStateReturnNullWhenEmpty()
@@ -105,6 +111,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getPostalCode()
      */
     public function getPostalCodeReturnPostalCodeAttribute()
@@ -118,6 +125,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setPostalCode()
      */
     public function setPostalCodeReturnNull()
@@ -129,6 +137,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getAddress()
      */
     public function getAddressReturnAddressAttribute()
@@ -142,6 +151,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setAddress()
      */
     public function setAddressReturnNull()
@@ -151,6 +161,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setAddress()
      */
     public function setAddressReturnNullWhemEmpty()
@@ -160,6 +171,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getNumber()
      */
     public function getNumberReturnNumberAttribute()
@@ -173,6 +185,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setNumber()
      */
     public function setNumberReturnNull()
@@ -182,6 +195,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getDistrict()
      */
     public function getDistrictReturnDistrictAttribute()
@@ -195,6 +209,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setDistrict()
      */
     public function setDistrictReturnNull()
@@ -204,6 +219,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::getComplement()
      */
     public function getComplementReturnComplementAttribute()
@@ -217,6 +233,7 @@ class AddressTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Address::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Address::setComplement()
      */
     public function setComplementReturnNull()

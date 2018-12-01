@@ -33,6 +33,26 @@ class Parcel
     private $quantity;
 
     /**
+     * Constructor
+     * 
+     * @param DateTime $maturity
+     * @param float $price
+     * @param int $key
+     * @param int $quantity
+     */
+    public function __construct(
+        DateTime $maturity = null,
+        float $price = 0.00,
+        int $key = 0,
+        int $quantity = 1
+    ) {
+        $this->maturity = $maturity ?? new DateTime();
+        $this->price = $price;
+        $this->key = $key;
+        $this->quantity = $quantity;
+    }
+
+    /**
      * @return the $maturity
      */
     public function getMaturity(): DateTime

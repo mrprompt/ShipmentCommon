@@ -32,16 +32,18 @@ class Phone
      * Constructor
      *
      * @param int $type
+     * @param int $number
      */
-    public function __construct(int $type = self::TELEPHONE)
+    public function __construct(int $type = self::TELEPHONE, int $number = 0)
     {
-        $this->setType($type);
+        $this->type = $type;
+        $this->number = $number;
     }
 
     /**
      * @return int
      */
-    public function getNumber()
+    public function getNumber(): int
     {
         return $this->number;
     }

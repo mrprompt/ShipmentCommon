@@ -12,7 +12,7 @@ class Person
     /**
      * @var string
      */
-    private $name;
+    private $name = '';
 
     /**
      * @var Document
@@ -20,7 +20,7 @@ class Person
     private $document;
 
     /**
-     * @var string
+     * @var Email
      */
     private $email;
 
@@ -84,21 +84,37 @@ class Person
     private $address;
 
     /**
+     * @var int
+     */
+    private $code;
+
+    /**
      * Constructor
      *
+     * @param string $person
+     * @param string $salaried
+     * @param DateTime $birth
+     * @param Document $document
+     * @param Address $address
+     * @param Email $email
+     * @param int $code
      */
     public function __construct(
         string $person = 'F', 
         string $salaried = 'A', 
         DateTime $birth = null, 
         Document $document = null, 
-        Address $address = null
+        Address $address = null,
+        Email $email = null,
+        int $code = 0
     ) {
         $this->person   = $person;
         $this->salaried = $address;
         $this->birth    = $birth ?? new DateTime();
         $this->document = $document ?? new Document();
         $this->address  = $address ?? new Address();
+        $this->email    = $email ?? new Email();
+        $this->code = $code;
     }
 
     /**
@@ -291,5 +307,22 @@ class Person
     public function setAddress(Address $address)
     {
         $this->address = $address;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCode(): int
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param int $code
+     * @return void
+     */
+    public function setCode(int $code)
+    {
+        $this->code = $code;
     }
 }

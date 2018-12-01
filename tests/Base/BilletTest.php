@@ -14,10 +14,6 @@ use PHPUnit\Framework\TestCase;
 class BilletTest extends TestCase
 {
     use ChangeProtectedAttribute;
-
-    /**
-     * @see \Centercob\Tests\Gateway\Mock
-     */
     use Mock;
 
     /**

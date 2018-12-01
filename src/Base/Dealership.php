@@ -19,6 +19,20 @@ class Dealership
     private $name;
 
     /**
+     * Constructor
+     * 
+     * @param int $code
+     * @param string $name
+     */
+    public function __construct(
+        int $code = 0,
+        string $name = ''
+    ) {
+        $this->code = $code;
+        $this->name = $name;
+    }
+
+    /**
      * Return the dealeship code
      *
      * @return int

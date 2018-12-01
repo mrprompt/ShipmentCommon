@@ -4,6 +4,7 @@ namespace MrPrompt\Tests\ShipmentCommon\Base;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use MrPrompt\ShipmentCommon\Base\Holder;
+use MrPrompt\ShipmentCommon\Base\Person;
 use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 
 /**
@@ -13,9 +14,6 @@ use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
  */
 class HolderTest extends TestCase
 {
-    /**
-     * @see \Centercob\Common\Util\ChangeProtectedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -45,41 +43,11 @@ class HolderTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Holder::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Holder::getCode()
      */
-    public function getCodeReturnCodeAttribute()
+    public function holderExtendsPerson()
     {
-        $this->modifyAttribute($this->holder, 'code', 1);
-
-        $this->assertEquals($this->holder->getCode(), 1);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Holder::setCode()
-     */
-    public function setCodeMustBeReturnNullWhenReceiveIntegerValue()
-    {
-        $this->assertNull($this->holder->setCode(1));
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Holder::setCode()
-     * @expectedException \TypeError
-     */
-    public function setCodeThrowsExceptionWhenNotNumericValue()
-    {
-        $this->holder->setCode('A');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Holder::setCode()
-     * @expectedException \TypeError
-     */
-    public function setCodeOnlyThrowsExceptionWhenEmpty()
-    {
-        $this->holder->setCode('');
+        $this->assertInstanceOf(Person::class, $this->holder);
     }
 }

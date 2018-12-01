@@ -2,6 +2,7 @@
 namespace MrPrompt\ShipmentCommon\Base;
 
 use ArrayObject;
+use stdClass;
 
 /**
  * Credit card
@@ -16,11 +17,6 @@ class Billet
     private $details;
 
     /**
-     * @var float
-     */
-    private $rate;
-
-    /**
      * @var BankAccount
      */
     private $bankAccount;
@@ -31,22 +27,36 @@ class Billet
     private $assignor;
 
     /**
-     * @var string
+     * @var float
+     */
+    private $rate;
+
+    /**
+     * @var int
      */
     private $number;
 
     /**
      * Constructor
      */
-    public function __construct()
-    {
-        $this->details = new ArrayObject();
+    public function __construct(
+        BankAccount $bankAccount = null,
+        Seller $assignor = null,
+        ArrayObject $details = null,
+        float $rate = 0.00,
+        int $number = 0
+    ) {
+        $this->bankAccount = $bankAccount ?? new BankAccount();
+        $this->assignor = $assignor ?? new Seller();
+        $this->details = $details ?? new ArrayObject();
+        $this->rate = $rate;
+        $this->number = $number;
     }
 
     /**
      * @return ArrayObject
      */
-    public function getDetails()
+    public function getDetails(): ArrayObject
     {
         return $this->details;
     }
@@ -62,7 +72,7 @@ class Billet
     /**
      * @param object $detail
      */
-    public function addDetail(\stdClass $detail)
+    public function addDetail(stdClass $detail)
     {
         $this->details->append($detail);
     }
@@ -70,7 +80,7 @@ class Billet
     /**
      * @return float
      */
-    public function getRate()
+    public function getRate(): float
     {
         return $this->rate;
     }
@@ -78,7 +88,7 @@ class Billet
     /**
      * @param float $rate
      */
-    public function setRate($rate)
+    public function setRate(float $rate)
     {
         $this->rate = $rate;
     }
@@ -102,7 +112,7 @@ class Billet
     /**
      * @return Seller
      */
-    public function getAssignor()
+    public function getAssignor(): Seller
     {
         return $this->assignor;
     }
@@ -116,17 +126,17 @@ class Billet
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getNumber()
+    public function getNumber(): int
     {
         return $this->number;
     }
 
     /**
-     * @param string $number
+     * @param int $number
      */
-    public function setNumber($number)
+    public function setNumber(int $number)
     {
         $this->number = $number;
     }
