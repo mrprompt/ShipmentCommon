@@ -5,7 +5,7 @@ use DateTime;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use MrPrompt\ShipmentCommon\Base\Parcels;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use MrPrompt\Tests\ShipmentCommon\Mock;
 
 /**

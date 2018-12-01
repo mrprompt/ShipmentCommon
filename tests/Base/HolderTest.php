@@ -4,7 +4,7 @@ namespace MrPrompt\Tests\ShipmentCommon\Base;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use MrPrompt\ShipmentCommon\Base\Holder;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 
 /**
  * Holder test case.

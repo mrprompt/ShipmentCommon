@@ -8,8 +8,14 @@
     </php>
 
     <testsuites>
-        <testsuite name="Common">
-            <directory>./tests</directory>
+        <testsuite name="Base">
+            <directory>./tests/Base</directory>
+        </testsuite>
+        <testsuite name="Type">
+            <directory>./tests/Type</directory>
+        </testsuite>
+        <testsuite name="Util">
+            <directory>./tests/Util</directory>
         </testsuite>
     </testsuites>
 

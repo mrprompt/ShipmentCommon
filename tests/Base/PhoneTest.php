@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Phone;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use MrPrompt\Tests\ShipmentCommon\Mock;
 use PHPUnit\Framework\TestCase;
 

@@ -2,7 +2,7 @@
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
 use MrPrompt\ShipmentCommon\Base\Client;
-use MrPrompt\ShipmentCommon\Util\ChangeProtectedAttribute;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
