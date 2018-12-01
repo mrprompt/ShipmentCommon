@@ -16,7 +16,7 @@ class Client
     /**
      * @param int $code
      */
-    public function __construct(int $code = null)
+    public function __construct(int $code = 0)
     {
         $this->code = $code;
     }

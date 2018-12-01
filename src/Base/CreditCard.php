@@ -52,24 +52,36 @@ class CreditCard
 
     /**
      * Constructor
+     * 
+     * @param int $number
+     * @param int $security
+     * @param int $flag
+     * @param DateTime $validate
      */
-    public function __construct(DateTime $validate = null)
-    {
+    public function __construct(
+        int $number = 0, 
+        int $security = 0, 
+        int $flag = 0, 
+        DateTime $validate = null
+    ) {
+        $this->number = $number;
+        $this->security = $security;
+        $this->flag = $flag;
         $this->validate = $validate ?? new DateTime();
     }
 
     /**
      * @return the $number
      */
-    public function getNumber(): string
+    public function getNumber(): int
     {
         return $this->number;
     }
 
     /**
-     * @param string $number
+     * @param int $number
      */
-    public function setNumber(string $number)
+    public function setNumber(int $number)
     {
         $this->number = $number;
     }
@@ -93,15 +105,15 @@ class CreditCard
     /**
      * @return the $security
      */
-    public function getSecurityNumber(): string
+    public function getSecurityNumber(): int
     {
         return $this->security;
     }
 
     /**
-     * @param string $security
+     * @param int $security
      */
-    public function setSecurityNumber(string $security)
+    public function setSecurityNumber(int $security)
     {
         $this->security = $security;
     }

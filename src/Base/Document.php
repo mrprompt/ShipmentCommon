@@ -32,11 +32,15 @@ class Document
     private $number;
 
     /**
+     * Constructor
+     * 
      * @param int $type
+     * @param int $number
      */
-    public function __construct(int $type = self::CPF)
+    public function __construct(int $type = self::CPF, int $number = 0)
     {
-        $this->setType($type);
+        $this->type = $type;
+        $this->number = $number;
     }
 
     /**

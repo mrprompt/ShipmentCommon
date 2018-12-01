@@ -44,11 +44,15 @@ class ConsumerUnity
      * 
      * @param DateTime $read
      * @param DateTime $maturity
+     * @param int $number
+     * @param int $code
      */
-    public function __construct(DateTime $read = null, DateTime $maturity = null)
+    public function __construct(DateTime $read = null, DateTime $maturity = null, int $number = 0, int $code = 0)
     {
         $this->read     = $read ?? new DateTime();
         $this->maturity = $maturity ?? new DateTime();
+        $this->number = $number;
+        $this->code = $code;
     }
 
     /**

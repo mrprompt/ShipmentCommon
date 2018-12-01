@@ -12,9 +12,6 @@ use PHPUnit\Framework\TestCase;
  */
 class OccurrenceTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -44,6 +41,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::getType()
      */
     public function getTypeMustBeReturnTypeAttribute()
@@ -58,6 +56,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setType()
      */
     public function setTypeOnlyAcceptPreDefinedTypes()
@@ -72,6 +71,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::getReturn()
      */
     public function getReturnMustBeReturnReturnAttribute()
@@ -83,6 +83,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setReturn()
      */
     public function setReturnMustBeReturnNullWhenReceiveNumericValue()
@@ -92,6 +93,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setReturn()
      */
     public function setReturnMustBeReturnNullWhenNotReceiveAnyParameter()
@@ -101,6 +103,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setReturn()
      * @expectedException \TypeError
      */
@@ -113,6 +116,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setReturn()
      * @expectedException \TypeError
      */
@@ -123,6 +127,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setReturn()
      */
     public function setReturnReturnNullWhenReceiveNumericAsStringValue()
@@ -132,6 +137,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setDescription()
      */
     public function setDescriptionMustBeReturnNullWhenReceiveStringValue()
@@ -141,6 +147,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::getDescription()
      */
     public function getDescriptionMustBeReturnDescriptionAttribute()
@@ -152,6 +159,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setDescription()
      */
     public function setDescriptionReturnNullWhenReceiveEmptyValue()
@@ -161,6 +169,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setDescription()
      */
     public function setDescriptionReturnNullWhenNotReceiveAnyParameter()
@@ -170,6 +179,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::getDate()
      */
     public function getDateMustBeReturnDateAttribute()
@@ -182,6 +192,7 @@ class OccurrenceTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Occurrence::setDate()
      */
     public function setDateMustBeReturnNull()

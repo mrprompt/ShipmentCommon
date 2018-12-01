@@ -42,6 +42,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::getAgency()
      */
     public function getAgencyReturnAgencyAttribute()
@@ -55,6 +56,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setAgency()
      */
     public function setAgencyReturnNull()
@@ -64,6 +66,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setAgency()
      * @expectedException \TypeError
      */
@@ -74,6 +77,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::getDigit()
      */
     public function getDigitReturnDigitAttribute()
@@ -87,6 +91,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setDigit()
      */
     public function setDigitReturnNull()
@@ -96,6 +101,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setDigit()
      * @expectedException \TypeError
      */
@@ -106,6 +112,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::getCode()
      */
     public function getCodeMustBeReturnCodeAttribute()
@@ -117,6 +124,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setCode()
      */
     public function setCodeMustBeReturnNull()
@@ -128,6 +136,7 @@ class BankTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Bank::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setCode()
      * @expectedException \TypeError
      */

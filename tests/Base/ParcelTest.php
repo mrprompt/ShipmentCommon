@@ -14,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class ParcelTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -46,6 +43,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::getMaturity()
      */
     public function getMaturity()
@@ -59,6 +57,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setMaturity()
      */
     public function setMaturity()
@@ -70,6 +69,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::getPrice()
      */
     public function getPrice()
@@ -83,6 +83,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setPrice()
      */
     public function setPrice()
@@ -94,6 +95,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setPrice()
      * @expectedException \TypeError
      */
@@ -104,6 +106,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setPrice()
      * @expectedException \TypeError
      */
@@ -114,6 +117,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::getKey()
      */
     public function getKey()
@@ -127,6 +131,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setKey()
      */
     public function setKey()
@@ -138,6 +143,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setKey()
      * @expectedException \TypeError
      */
@@ -148,6 +154,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::getQuantity()
      */
     public function getQuantity()
@@ -161,6 +168,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setQuantity()
      */
     public function setQuantity()
@@ -172,6 +180,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setQuantity()
      * @expectedException \TypeError
      */
@@ -182,6 +191,7 @@ class ParcelTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setQuantity()
      * @expectedException \TypeError
      */

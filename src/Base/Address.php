@@ -58,6 +58,35 @@ class Address
     private $complement;
 
     /**
+     * Constructor
+     * 
+     * @param string $city
+     * @param string $state
+     * @param string $postalCode
+     * @param string $address
+     * @param string $number
+     * @param string $district
+     * @param string $complement
+     */
+    public function __construct(
+        string $city = '',
+        string $state = '',
+        string $postalCode = '',
+        string $address = '',
+        string $number = '',
+        string $district = '',
+        string $complement = ''
+    ) {
+        $this->city = $city;
+        $this->state = $state;
+        $this->postalCode = $postalCode;
+        $this->address = $address;
+        $this->number = $number;
+        $this->district = $district;
+        $this->complement = $complement;
+    }
+
+    /**
      * Return the city
      * 
      * @return string

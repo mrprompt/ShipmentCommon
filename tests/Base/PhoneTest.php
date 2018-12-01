@@ -13,9 +13,6 @@ use PHPUnit\Framework\TestCase;
  */
 class PhoneTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**

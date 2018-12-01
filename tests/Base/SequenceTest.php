@@ -13,9 +13,6 @@ use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
  */
 class SequenceTest extends TestCase
 {
-    /**
-     * @see \Centercob\Common\Util\ChangeProtectedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**

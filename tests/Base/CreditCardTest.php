@@ -14,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class CreditCardTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -116,7 +113,7 @@ class CreditCardTest extends TestCase
     {
         $this->modifyAttribute($this->card, 'security', '232');
 
-        $this->assertSame('232', $this->card->getSecurityNumber());
+        $this->assertEquals(232, $this->card->getSecurityNumber());
     }
 
     /**

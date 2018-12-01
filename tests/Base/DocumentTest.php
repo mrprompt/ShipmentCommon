@@ -13,9 +13,6 @@ use PHPUnit\Framework\TestCase;
  */
 class DocumentTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**

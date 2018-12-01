@@ -14,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class PersonTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -366,5 +363,49 @@ class PersonTest extends TestCase
         $result = $this->person->setAddress($address);
 
         $this->assertNull($result);
+    }
+
+    /**
+     * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Person::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Person::getCode()
+     */
+    public function getCodeReturnCodeAttribute()
+    {
+        $this->modifyAttribute($this->person, 'code', 1);
+
+        $this->assertEquals($this->person->getCode(), 1);
+    }
+
+    /**
+     * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Person::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Person::setCode()
+     */
+    public function setCodeMustBeReturnNullWhenReceiveIntegerValue()
+    {
+        $this->assertNull($this->person->setCode(1));
+    }
+
+    /**
+     * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Person::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Person::setCode()
+     * @expectedException \TypeError
+     */
+    public function setCodeThrowsExceptionWhenNotNumericValue()
+    {
+        $this->person->setCode('A');
+    }
+
+    /**
+     * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Person::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Person::setCode()
+     * @expectedException \TypeError
+     */
+    public function setCodeOnlyThrowsExceptionWhenEmpty()
+    {
+        $this->person->setCode('');
     }
 }

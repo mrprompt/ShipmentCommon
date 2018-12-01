@@ -18,7 +18,10 @@ class AuthorizationTest extends TestCase
      * @var Authorization
      */
     private $authorization;
-
+    
+    /**
+     * Prepares the environment before running a test.
+     */
     public function setUp()
     {
         parent::setUp();
@@ -28,6 +31,7 @@ class AuthorizationTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Authorization::__construct
      * @covers \MrPrompt\ShipmentCommon\Base\Authorization::getNumber
      */
     public function getNumberMustBeReturnNumberAttribute()
@@ -39,6 +43,7 @@ class AuthorizationTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Authorization::__construct
      * @covers \MrPrompt\ShipmentCommon\Base\Authorization::setNumber
      */
     public function setNumberMustBeReturnNull()
@@ -50,6 +55,7 @@ class AuthorizationTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Authorization::__construct
      * @covers \MrPrompt\ShipmentCommon\Base\Authorization::setNumber
      * @expectedException \TypeError
      */

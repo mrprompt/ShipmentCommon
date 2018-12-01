@@ -13,9 +13,6 @@ use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
  */
 class CustomerTest extends TestCase
 {
-    /**
-     * @see \Centercob\Common\Util\ChangeProtectedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -45,6 +42,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::getCode()
      */
     public function getCodeReturnCodeAttribute()
@@ -56,6 +54,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setCode()
      */
     public function setCodeMustBeReturnNullWhenReceiveIntegerValue()
@@ -65,6 +64,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setCode()
      * @expectedException \TypeError
      */
@@ -75,6 +75,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setCode()
      * @expectedException \TypeError
      */
@@ -85,6 +86,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setCode()
      */
     public function setCodeMustBeReturnNullWhenReceiveFloatValue()
@@ -94,6 +96,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::getIdentityNumber()
      */
     public function getIdentityNumberReturnIdentityNumberAttribute()
@@ -105,6 +108,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setIdentityNumber()
      */
     public function setIdentityNumberReturnNullWhenReceiveNumericValue()
@@ -115,6 +119,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setIdentityNumber()
      * @expectedException \TypeError
      */
@@ -125,6 +130,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setIdentityNumber()
      * @expectedException \TypeError
      */
@@ -135,6 +141,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::getWorkingDays()
      */
     public function getWorkingDaysReturnWorkingDaysAttribute()
@@ -146,6 +153,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setWorkingDays()
      */
     public function setWorkingDaysReturnNullWhenReceiveNumericValue()
@@ -155,6 +163,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setWorkingDays()
      * @expectedException \TypeError
      */
@@ -165,6 +174,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setWorkingDays()
      * @expectedException \TypeError
      */
@@ -175,6 +185,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::getHelpfulMaturity()
      */
     public function getHelpfulMaturityReturnHelpfulMaturityAttribute()
@@ -186,6 +197,7 @@ class CustomerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Customer::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Customer::setHelpfulMaturity()
      */
     public function setHelpfulMaturityReturnNullWhenReceiveBooleanValue()

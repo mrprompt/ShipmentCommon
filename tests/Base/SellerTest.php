@@ -1,10 +1,11 @@
 <?php
 namespace MrPrompt\Tests\ShipmentCommon\Base;
 
-use MrPrompt\ShipmentCommon\Base\Seller;
-use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
+use MrPrompt\ShipmentCommon\Base\Person;
+use MrPrompt\ShipmentCommon\Base\Seller;
+use MrPrompt\Tests\ShipmentCommon\ChangeProtectedAttribute;
 
 /**
  * Seller test case.
@@ -13,9 +14,6 @@ use PHPUnit\Framework\TestCase;
  */
 class SellerTest extends TestCase
 {
-    /**
-     * @see \Centercob\Tests\ChangeProctedAttribute
-     */
     use ChangeProtectedAttribute;
 
     /**
@@ -45,33 +43,11 @@ class SellerTest extends TestCase
 
     /**
      * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Seller::__construct()
      * @covers \MrPrompt\ShipmentCommon\Base\Seller::getCode()
      */
-    public function getCodeReturnCodeAttribute()
+    public function sellerExtendsPerson()
     {
-        $this->modifyAttribute($this->seller, 'code', 1);
-
-        $this->assertEquals($this->seller->getCode(), 1);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Seller::setCode()
-     */
-    public function setCodeChangeCodeAttribute()
-    {
-        $this->seller->setCode(1);
-
-        $this->assertEquals($this->seller->getCode(), 1);
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Seller::setCode()
-     * @expectedException \TypeError
-     */
-    public function setCodeMustBeThrowsInvalidArgumentExceptionWhenEmpty()
-    {
-        $this->seller->setCode('');
+        $this->assertInstanceOf(Person::class, $this->seller);
     }
 }

@@ -24,8 +24,8 @@ class Email
      */
     public function __construct(string $address = null, bool $primary = true)
     {
-        $this->setAddress($address);
-        $this->setPrimary($primary);
+        $this->address = $address;
+        $this->primary = $primary;
     }
 
     /**

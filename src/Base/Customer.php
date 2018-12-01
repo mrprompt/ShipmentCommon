@@ -28,6 +28,26 @@ class Customer extends Person
     private $workingDays;
 
     /**
+     * Constructor
+     * 
+     * @param int $code
+     * @param int $identityNumber
+     * @param bool $helpfulMaturity
+     * @param int $workingDays
+     */
+    public function __construct(
+        int $code = 0,
+        int $identityNumber = 0,
+        bool $helpfulMaturity = false,
+        int $workingDays = 0
+    ) {
+        $this->code = $code;
+        $this->identityNumber = $identityNumber;
+        $this->helpfulMaturity = $helpfulMaturity;
+        $this->workingDays = $workingDays;
+    }
+
+    /**
      * @return int
      */
     public function getCode(): int
