@@ -65,7 +65,7 @@ class BankTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setAgency()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setAgencyThrowsExceptionWhenNotNumericValue()
     {
@@ -97,7 +97,7 @@ class BankTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setDigit()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setDigitThrowsExceptionWhenNotNumericValue()
     {
@@ -129,20 +129,10 @@ class BankTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Bank::setCode()
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
     public function setCodeMustBeThrowsExceptionWhenReceiveStringName()
     {
         $this->bank->setCode('Banco do Brasil');
-    }
-
-    /**
-     * @test
-     * @covers \MrPrompt\ShipmentCommon\Base\Bank::setCode()
-     * @expectedException \InvalidArgumentException
-     */
-    public function setCodeMustBeThrowsExceptionWhenReceiveInvalidCode()
-    {
-        $this->bank->setCode(0);
     }
 }
