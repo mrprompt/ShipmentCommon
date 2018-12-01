@@ -1,6 +1,10 @@
 ShipmentCommon
 ==============
 
+[![Build Status](https://travis-ci.org/mrprompt/ShipmentCommon.svg?branch=master)](https://travis-ci.org/mrprompt/ShipmentCommon)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mrprompt/ShipmentCommon/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mrprompt/ShipmentCommon/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/mrprompt/ShipmentCommon/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mrprompt/ShipmentCommon/?branch=master)
+
 Common classes used from:
 
 - [Celesc](https://github.com/mrprompt/Celesc)
