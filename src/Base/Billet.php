@@ -62,7 +62,7 @@ class Billet
     /**
      * @param object $detail
      */
-    public function addDetail(object $detail)
+    public function addDetail(\stdClass $detail)
     {
         $this->details->append($detail);
     }
