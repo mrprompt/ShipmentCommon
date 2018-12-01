@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Authorization
  *
@@ -19,7 +16,7 @@ class Authorization
     /**
      * @return int
      */
-    public function getNumber()
+    public function getNumber(): int
     {
         return $this->number;
     }
@@ -27,14 +24,8 @@ class Authorization
     /**
      * @param int $number
      */
-    public function setNumber($number)
+    public function setNumber(int $number)
     {
-        try {
-            Validator::length(0, 20)->assert($number);
-
-            $this->number = $number;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid authorization number: %s', $number));
-        }
+        $this->number = $number;
     }
 }

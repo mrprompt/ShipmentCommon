@@ -43,7 +43,7 @@ class AuthorizationTest extends TestCase
      */
     public function setNumberMustBeReturnNull()
     {
-        $result = $this->authorization->setNumber('lajskfsla');
+        $result = $this->authorization->setNumber(1);
 
         $this->assertNull($result);
     }
@@ -51,13 +51,10 @@ class AuthorizationTest extends TestCase
     /**
      * @test
      * @covers \MrPrompt\ShipmentCommon\Base\Authorization::setNumber
-     * @expectedException \InvalidArgumentException
+     * @expectedException \TypeError
      */
-    public function setNumberThrowsExceptionWhenExceedMaximumValue()
+    public function setNumberThrowsExceptionWhenNotNumeric()
     {
-        $number = str_pad('x', 25, 'x');
-        $result = $this->authorization->setNumber($number);
-
-        $this->assertNull($result);
+        $this->authorization->setNumber('A');
     }
 }
