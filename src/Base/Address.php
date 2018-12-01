@@ -1,9 +1,6 @@
 <?php
 namespace MrPrompt\ShipmentCommon\Base;
 
-use Respect\Validation\Exceptions\AllOfException;
-use Respect\Validation\Validator;
-
 /**
  * Address
  *
@@ -28,96 +25,96 @@ class Address
     /**
      * Postal Code - CEP
      *
-     * @var mixed
+     * @var string
      */
     private $postalCode;
 
     /**
+     * Address
      *
      * @var string
      */
     private $address;
 
     /**
+     * Address Number
      *
      * @var int
      */
     private $number;
 
     /**
+     * District
      *
      * @var string
      */
     private $district;
 
     /**
+     * Complement
      *
      * @var string
      */
     private $complement;
 
     /**
-     * @return the $city
+     * Return the city
+     * 
+     * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
 
     /**
+     * Set the city
+     * 
      * @param string $city
      */
     public function setCity(string $city)
     {
-        if (strlen($city) > 200) {
-            throw new \InvalidArgumentException(sprintf('Invalid city name: %s', $city));
-        }
-
         $this->city = $city;
     }
 
     /**
-     * @return the $state
+     * Get the state
+     * 
+     * @return string
      */
-    public function getState()
+    public function getState(): string
     {
         return $this->state;
     }
 
     /**
+     * Set the state
+     * 
      * @param string $state
      */
-    public function setState($state)
+    public function setState(string $state)
     {
-        try {
-            Validator::create()->length(null, 2)->assert($state);
-
-            $this->state = $state;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid state value: %s', $state));
-        }
+        $this->state = $state;
     }
 
     /**
-     * @return the $postalCode
+     * Get the postal code
+     * 
+     * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->postalCode;
     }
 
     /**
+     * Set the postal code
+     * 
      * @param string $postalCode
      */
-    public function setPostalCode($postalCode)
+    public function setPostalCode(string $postalCode)
     {
-        try {
-            Validator::stringType()->notEmpty()->length(8, 8)->assert($postalCode);
-
-            $this->postalCode = $postalCode;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid postal code: "%s"', $postalCode));
-        }
+        $this->postalCode = $postalCode;
     }
 
     /**
@@ -131,46 +128,31 @@ class Address
     /**
      * @param string $address
      */
-    public function setAddress($address)
+    public function setAddress(string $address)
     {
-        try {
-            Validator::create()->length(null, 140)->assert($address);
-
-            $this->address = $address;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid address: "%s"', $address));
-        }
+        $this->address = $address;
     }
 
     /**
      * @return the $number
      */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
 
     /**
-     * @param number $number
+     * @param string $number
      */
-    public function setNumber($number)
+    public function setNumber(string $number)
     {
-        try {
-            $number = trim($number);
-
-            Validator::create()->numeric()->assert($number);
-
-            $this->number = $number;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Invalid address number %s', $number));
-        }
-
+        $this->number = $number;
     }
 
     /**
      * @return the $district
      */
-    public function getDistrict()
+    public function getDistrict(): string
     {
         return $this->district;
     }
@@ -178,21 +160,15 @@ class Address
     /**
      * @param string $district
      */
-    public function setDistrict($district)
+    public function setDistrict(string $district)
     {
-        try {
-            Validator::create()->length(null, 200)->assert($district);
-
-            $this->district = $district;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('District %s is invalid', $district));
-        }
+        $this->district = $district;
     }
 
     /**
      * @return the $complement
      */
-    public function getComplement()
+    public function getComplement(): string
     {
         return $this->complement;
     }
@@ -200,14 +176,8 @@ class Address
     /**
      * @param string $complement
      */
-    public function setComplement($complement)
+    public function setComplement(string $complement)
     {
-        try {
-            Validator::create()->length(null, 150)->assert($complement);
-
-            $this->complement = $complement;
-        } catch (AllOfException $ex) {
-            throw new \InvalidArgumentException(sprintf('Complement %s is invalid', $complement));
-        }
+        $this->complement = $complement;
     }
 }

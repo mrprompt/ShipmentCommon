@@ -36,7 +36,7 @@ class Dealership
      *
      * @param int $code
      */
-    public function setCode($code)
+    public function setCode(string $code)
     {
         try {
             Validator::stringType()->length(null, 6)->assert($code);
