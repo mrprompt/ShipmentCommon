@@ -3,9 +3,9 @@ ShipmentCommon
 
 Common classes used from:
 
-- [Celesc](#)
-- [CenterCob][#]
-- [CaixaEconomicaFederal](#)
+- [Celesc](https://github.com/mrprompt/Celesc)
+- [CenterCob](https://github.com/mrprompt/Centercob)
+- [CaixaEconomicaFederal](https://github.com/mrprompt/CaixaEconomicaFederal)
 
 ## Dependências
 
