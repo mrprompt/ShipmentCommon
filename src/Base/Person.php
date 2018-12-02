@@ -168,7 +168,7 @@ class Person
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -216,9 +216,9 @@ class Person
     /**
      * @return the $fatherName
      */
-    public function getFatherName(): string
+    public function getFatherName(): ?string
     {
-        return (string) $this->fatherName;
+        return $this->fatherName;
     }
 
     /**
@@ -232,9 +232,9 @@ class Person
     /**
      * @return the $motherName
      */
-    public function getMotherName(): string
+    public function getMotherName(): ?string
     {
-        return (string) $this->motherName;
+        return $this->motherName;
     }
 
     /**
@@ -250,7 +250,7 @@ class Person
      */
     public function getPerson(): string
     {
-        return (string) $this->person;
+        return $this->person;
     }
 
     /**
@@ -264,9 +264,9 @@ class Person
     /**
      * @return mixed
      */
-    public function getSalaried(): string
+    public function getSalaried(): ?string
     {
-        return (string) $this->salaried;
+        return $this->salaried;
     }
 
     /**
