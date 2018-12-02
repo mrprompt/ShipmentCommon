@@ -199,4 +199,52 @@ class ParcelTest extends TestCase
     {
         $this->parcel->setQuantity('');
     }
+
+    /**
+     * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::getStatus()
+     */
+    public function getStatusReturnStatusAttribute()
+    {
+        $status = 1;
+        
+        $this->modifyAttribute($this->parcel, 'status', $status);
+
+        $this->assertEquals($status, $this->parcel->getStatus());
+    }
+
+    /**
+     * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setStatus()
+     */
+    public function setStatus()
+    {
+        $result = $this->parcel->setStatus(1);
+
+        $this->assertNull($result);
+    }
+
+    /**
+     * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setStatus()
+     * @expectedException \TypeError
+     */
+    public function setStatusThrowsExceptionWhenReceiveNotNumericValue()
+    {
+        $this->parcel->setStatus('SD');
+    }
+
+    /**
+     * @test
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::__construct()
+     * @covers \MrPrompt\ShipmentCommon\Base\Parcel::setStatus()
+     * @expectedException \TypeError
+     */
+    public function setStatusThrowsExceptionWhenReceiveEmptyValue()
+    {
+        $this->parcel->setStatus('');
+    }
 }
