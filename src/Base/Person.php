@@ -43,13 +43,13 @@ class Person
      *
      * @var string
      */
-    private $fatherName;
+    private $fatherName = '';
 
     /**
      *
      * @var string
      */
-    private $motherName;
+    private $motherName = '';
 
     /**
      * Person type
