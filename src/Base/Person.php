@@ -43,13 +43,13 @@ class Person
      *
      * @var string
      */
-    private $fatherName;
+    private $fatherName = '';
 
     /**
      *
      * @var string
      */
-    private $motherName;
+    private $motherName = '';
 
     /**
      * Person type
@@ -168,7 +168,7 @@ class Person
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -216,7 +216,7 @@ class Person
     /**
      * @return the $fatherName
      */
-    public function getFatherName(): string
+    public function getFatherName(): ?string
     {
         return $this->fatherName;
     }
@@ -232,7 +232,7 @@ class Person
     /**
      * @return the $motherName
      */
-    public function getMotherName(): string
+    public function getMotherName(): ?string
     {
         return $this->motherName;
     }
@@ -264,7 +264,7 @@ class Person
     /**
      * @return mixed
      */
-    public function getSalaried(): string
+    public function getSalaried(): ?string
     {
         return $this->salaried;
     }
