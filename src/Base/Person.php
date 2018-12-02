@@ -218,7 +218,7 @@ class Person
      */
     public function getFatherName(): string
     {
-        return $this->fatherName;
+        return (string) $this->fatherName;
     }
 
     /**
@@ -234,7 +234,7 @@ class Person
      */
     public function getMotherName(): string
     {
-        return $this->motherName;
+        return (string) $this->motherName;
     }
 
     /**
@@ -250,7 +250,7 @@ class Person
      */
     public function getPerson(): string
     {
-        return $this->person;
+        return (string) $this->person;
     }
 
     /**
@@ -266,7 +266,7 @@ class Person
      */
     public function getSalaried(): string
     {
-        return $this->salaried;
+        return (string) $this->salaried;
     }
 
     /**
